@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-axl2j1hsbua&$xm47&4^!x2&w7ht38^i=*$aq_+^9xp&(()y&v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['deployed-api-ng9v.onrender.com']
+ALLOWED_HOSTS = ['deployed-api-ng9v.onrender.com','*']
 
 
 # Application definition
@@ -133,3 +133,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media'),
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
+

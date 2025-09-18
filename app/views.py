@@ -52,3 +52,18 @@ class detail(APIView):
         snippet = self.get_object(pk)
         snippet.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+from rest_framework import viewsets
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated,AllowAny
+
+class StudentViewSet(viewsets.ModelViewSet):
+
+    """
+    A simple ViewSet for viewing and editing accounts.
+    """
+    # authentication_classes = [ BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+    
